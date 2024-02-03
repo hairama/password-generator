@@ -1,3 +1,37 @@
+/*Going to try and add dark mode.*/ 
+
 body {
-    margin: 0;
+    padding: 40px 0px;
+    color: #273549;
+    background-color: whitesmoke;
+}
+
+body.dark {
+    color: whitesmoke;
+    background-color: #273549;
+}
+
+.pw-holder {
+    display: flex;
+    /*border: 1px red solid;*/
+    justify-content: space-around;
+    width: 500px;
+    margin: 7px 0px 20px 0px;
+}
+
+.pw-box {
+    background-color: #2F3E53;
+    color: #55F991;
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 0px;
+}
+
+.flex-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
