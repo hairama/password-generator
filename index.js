@@ -5,10 +5,6 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 let firstPasswordContainer = document.getElementById("first-password-container")
 let secondPasswordContainer = document.getElementById("second-password-container")
 
-//varibles for dark / light mode
-let buttonText = document.getElementById("dark-or-light-mode")
-mode = buttonText.textContent
-
 //define passwordGenerate()
 function passwordGenerate() {
     //clear old passwords
@@ -17,7 +13,7 @@ function passwordGenerate() {
 
     //for loop to randomly select characters
     for (i = 0; i < 15; i++) {
-        /* 1. get a random number between 0 and length of character[]
+        /* 1. get a random number between 0 and length of character[] array
            2. Use this number to get a value from the character[] array
            3. get text from the 'first-password-container' element and add the value to it */
         firstPasswordContainer.textContent += characters[Math.floor( Math.random() * characters.length)]
@@ -45,23 +41,10 @@ function copyToClipboard(elementToCopy) {
 
 //define darkOrLightMode()
 function darkOrLightMode() {
-
-    if (mode === 'Light') {
-        mode = 'Dark'
-        buttonText.textContent = 'Dark'
-        document.body.classList.add('dark')
-        document.section.classlist.add('dark')
-    } else {
-        mode = 'Light'
-        buttonText.textContent = 'Light'
-        document.body.classList.remove('dark')
-        document.section.classlist.add('dark')
-    }
-    //console.log(mode)
+    document.body.classList.toggle("dark-mode")
 }
-
   
-/*how to create populate 2 fields with a single function
+/*how to populate 2 fields with a single function
     1. I need to generate a single random password which follows some rules
     2. after I generate one password I need to store it or update the field
     3. then I need to generate another password using the same rules
@@ -70,9 +53,9 @@ function darkOrLightMode() {
     Done! 
     5. Now I could either stick it in a variable (firstPwd) or the <p> directly
     6. I imagine that having a variable will help with copy-on-click
-    7. Directly populating the <p> meets the need
+    7. Nevermind directly populating the <p> meets the need
     8. The real question is whether I can copy text from any text element? (<p> <button> etc?) 
     9. seems like you can.
     10.So, how do I create a second password?
-    11. Just 
+    11. Just do it in the same for loop
 */

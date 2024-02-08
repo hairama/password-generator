@@ -3,32 +3,40 @@
     <head>
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
         <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap" rel="stylesheet">  
         <title>Password Generator</title>
     </head>
     <body>
-        <header class="flex-align"> <!--all the titles-->
-            <h1>Generate a</h1>
-            <h1>random password</h1>
-            <h3>Never use an insecure password again.</h3>
-        </header>
-        <main class="flex-align">
-            <section> <!--main UI-->
-                <button onclick="passwordGenerate()">Generate passwords</button>
-                <div><hr></div>
-                <div class="pw-holder"> <!--a-flex-box-to-hold-two-password containers-->
+        <section class="everything-holder"> <!--holds all visible UI-->
+            <header> <!--all the titles-->
+                <h1 class="regular-heading">Generate a</h1>
+                <h1 class="green-heading">random password</h1>
+                <h3 class="grey-text">Never use an insecure password again.</h3>
+            </header>
+            <main>
+            <section> <!--functional UI-->
+                <button id="generate-btn" class="generate-btn" onclick="passwordGenerate()">Generate passwords</button>
+                <div><hr class="horizontal-divider"></div>
+                <div class="pw-box-holder flex-align"> <!--a-flex-box-to-hold-two-password containers-->
                     <div>
-                        <p id="first-password-container" onclick="copyToClipboard(1)" class="pw-box"> </p>
+                        <p id="first-password-container" class="pw-box" onclick="copyToClipboard(1)"> </p>
                     </div>
                     <div>
-                        <p id="second-password-container" onclick="copyToClipboard(2)" class="pw-box"> </p>
+                        <p id="second-password-container" class="pw-box" onclick="copyToClipboard(2)"> </p>
                     </div>
                 </div>
-            </section> <!--end of main UI-->
-        <footer>
-            <button id="dark-or-light-mode" onClick="darkOrLightMode()">Light</button>
-        </footer>
+            </section> 
+            <footer class="dark-mode-switch-container">
+                <label class="switch"> <!-- rounded toggle switch -->
+                    <input type="checkbox" onclick="darkOrLightMode()">
+                    <span class="slider round"></span>
+                </label>
+                <p class="grey-text">Toggle Dark mode</p>
+            </footer>
+        </section>
         </main>
-        
         <script src="index.js"></script>
     </body>
 </html>
