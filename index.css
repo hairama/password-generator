@@ -5,13 +5,17 @@
     --green-heading-color: #10B981;
     --grey-text-color: #6B7280;
 
-    --pw-box-background-color: #2F3E53;
+    --pw-box-background-color: #273549;
     --pw-box-text-color: #5DEF92;
+    --pw-box-hover-background-color: #414B5A;
 
     --green-button-color: #10B981;
     --green-button-text: #FFFFFF;
+    --green-button-hover-color: #0BA875; 
+    /* --green-button-hover-text: #2F3E53; */
 
     --divider-color: #D5D4D8;
+    transition: 0.3s;
 }
 
 body.dark-mode {
@@ -23,39 +27,78 @@ body.dark-mode {
 
     --pw-box-background-color: #273549;
     --pw-box-text-color: #55f991;
+    --pw-box-hover-background-color: #374151;
     
     --green-button-color:#10B981;
     --green-button-text: #FFFFFF;
+    --green-button-hover-color: #0BA875;
 
     --divider-color: #2F3E53;
+    transition: 0.3s;
 }
 
 body {
     background-color: var(--background-color);
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+    margin: 0;
 }
 
-.flex-align {
-    display: flex;
-    flex-direction: column;   
+/*holds all visible UI*/
+.everything-holder, header{ 
+    /* display: grid;
+    grid-template-columns: 1fr;  */
+    /* border: 1px solid red; */
 }
 
-.everything-holder { /*holds all visible UI*/
-    width: 470px;
-    margin: 150px auto 0 auto;
+.everything-holder {
+    padding: 1em 7%;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr) / 1fr;  
+    grid-row-gap: 0.75em;
+    border: 1px solid red;
+    grid-template-areas: 
+        "gnr8"
+        "numb"
+        "symb"
+        "leng"
+        "hori"
+        "pwbx"
+        "pwbx"
+        "....";
+    justify-items: center;
+    margin-bottom: 1.5em;
+}
+
+/* Grid-area selectors */
+.generate-btn {grid-area: gnr8;}
+.numb {grid-area: numb;}
+.symb {grid-area: symb;}
+.leng {grid-area: leng;}
+.horizontal-divider {grid-area: hori; width: 10em;} 
+.pw-box-holder{grid-area: pwbx;} 
+
+.regular-heading, .green-heading {
+    font-size: 30px;
+}
+
+header {
+    height: 19vh;
+}
 .regular-heading {
     color: var(--regular-heading-color);
     font-family: 'Karla', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 40px;
     margin: 0px;
 }
 
 .green-heading {
     color: var(--green-heading-color);
+    font-size: 20px;
     margin: 0px;
 }
 
@@ -72,19 +115,24 @@ body {
     padding: 11px 12px;
     font-size: 16px;
     margin: 20px 0px 0px 0px;
+    cursor: pointer;
+    max-width: 250px;
+    
+}
+
+.generate-btn:hover {
+    background-color: var(--green-button-hover-color);
 }
 
 .horizontal-divider {
     color: var(--divider-color);
-    margin: 30px 0px 20px 0px;
-    width: 450px;
+    margin: 0;
+    /* width: 450px; */
 }
 
-.pw-box-holder {
-    flex-direction: row;
-    margin: 15px 0px 20px 0px;
-    padding-left: 0px;
-}
+
+
+
 
 .pw-box {
     background-color: var(--pw-box-background-color);
@@ -92,11 +140,36 @@ body {
     width: 180px;
     height: 20px;
     text-align: center;
-    margin: 10px 24px 0 0px;
+    /* margin: 10px 24px 0 0px; */
     border: none;
     border-radius: 5px;
     padding: 7px 17px;
     font-weight: 400;
+    overflow: hidden;
+}
+
+.user-defined-parameters {
+    /* border: 1px solid purple; */
+    display: flex;
+    margin-left: auto;
+    width: 15em;
+    align-items: center;
+    justify-content: end;
+    
+    
+    
+}
+
+.user-defined-parameters input {
+    width: 4em;
+    /* border: 10px solid goldenrod */
+    margin: 0;
+    -moz-appearance: textfield;
+    
+}
+
+.pw-box:hover {
+    background-color: var(--pw-box-hover-background-color);
 }
 
 .dark-mode-switch-container {
@@ -104,6 +177,54 @@ body {
     flex-direction: row;
     justify-content: end;
     align-items: center;
+    border: 1px solid magenta;
+}
+
+/* Media queries */
+@media (min-width: 550px) {
+
+    .grid {
+        grid-template-columns: repeat(5, 1fr) / 1fr 1fr;
+        grid-template-areas: 
+        "gnr8 numb"
+        ".... symb"
+        ".... leng"
+        "hori ...."
+        "pwbx pwbx"; 
+        padding: 0 9%;
+    }
+    
+    .regular-heading {
+        color: var(--regular-heading-color);
+        font-family: 'Karla', sans-serif;
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0px;
+        
+    }
+
+    .green-heading {
+        color: var(--green-heading-color);
+        margin: 0px;
+        font-size: 30px;
+    }
+
+    .grey-text {
+        color: var(--grey-text-color);
+        font-weight: 400;
+    }
+    
+    .flex-align {
+    display: flex;
+    flex-direction: column;   
+    }
+    
+    .pw-box-holder {
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid blue;
+        gap: 1em;
+    }
 }
 
 /*Everything here and below relates to the dark-mode toggle*/ 
@@ -171,10 +292,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 } 
 
-
-
-
-
-
-
-
+label {
+    display: inline-block;
+    margin-right: 5px; /* Adjust this to your preference */
+}

@@ -1,40 +1,83 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
         <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap" rel="stylesheet">  
         <title>Password Generator</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <section class="everything-holder"> <!--holds all visible UI-->
-            <header> <!--all the titles-->
+        <!--holds all visible UI-->
+        <section class="everything-holder"> 
+            <header>
                 <h1 class="regular-heading">Generate a</h1>
                 <h1 class="green-heading">random password</h1>
                 <h3 class="grey-text">Never use an insecure password again.</h3>
             </header>
             <main>
-            <section> <!--functional UI-->
-                <button id="generate-btn" class="generate-btn" onclick="passwordGenerate()">Generate passwords</button>
+            <!--functional UI-->
+            <section class="grid"> 
+                <button 
+                    id="generate-btn" 
+                    class="generate-btn"
+                    data-generate="generate">Generate passwords
+                </button>
+                <div class="user-defined-parameters numb">
+                    <label for="toggle-numbers" class="grey-text">Include numbers</label>    
+                    <label class="switch">
+                        <input 
+                            type="checkbox" 
+                            id="toggle-numbers"
+                            data-include_numbers="include_numbers">
+                        <span class="slider round" checked="checked"></span>
+                    </label>
+                </div>
+                <div class="user-defined-parameters symb">
+                    <label for="toggle-symbols" class="grey-text">Include symbols</label>
+                    <label class="switch">
+                        <input 
+                            type="checkbox" 
+                            id="toggle-symbols" 
+                            data-include_symbols="include_symbols">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <div class="user-defined-parameters leng">
+                    <label class="grey-text" for="password-length">Length:</label>
+                    <input 
+                        type="number"
+                        id="password-length"
+                        data-pw_length="pw_length"
+                        value="15"
+                        placeholder="Enter a number"
+                        class="pw-box">
+                </div>
                 <div><hr class="horizontal-divider"></div>
-                <div class="pw-box-holder flex-align"> <!--a-flex-box-to-hold-two-password containers-->
+                <!--a-flex-box-to-hold-two-password containers-->
+                <div class="pw-box-holder flex-align"> 
                     <div>
-                        <p id="first-password-container" class="pw-box" onclick="copyToClipboard(1)"> </p>
+                        <p id="first-password-container" 
+                            class="pw-box"
+                            data-first_pw_box="first_pw_box"></p>
                     </div>
                     <div>
-                        <p id="second-password-container" class="pw-box" onclick="copyToClipboard(2)"> </p>
+                        <p id="second-password-container" 
+                            class="pw-box"
+                            data-second_pw_box="second_pw_box"></p>
                     </div>
                 </div>
             </section> 
             <footer class="dark-mode-switch-container">
-                <label class="switch"> <!-- rounded toggle switch -->
-                    <input type="checkbox" onclick="darkOrLightMode()">
-                    <span class="slider round"></span>
+                <label for="dark-mode" class="grey-text">Dark mode</label>
+                <label class="switch">
+                    <input 
+                        type="checkbox"
+                        id="dark-mode" 
+                        data-dark_mode="dark_mode">
+                    <span class="slider round" checked="unchecked"></span>
                 </label>
-                <p class="grey-text">Toggle Dark mode</p>
             </footer>
         </section>
         </main>
