@@ -13,7 +13,7 @@ const passwordLength = document.getElementById("password-length")
 let pwLength = 15
 let includeNumbers = true
 let includeSymbols = true
-let darkMode = false
+let darkMode = true
 passwordLength.value = pwLength
 
 

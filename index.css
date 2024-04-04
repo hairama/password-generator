@@ -1,4 +1,23 @@
 :root {
+    /* Dark mode variables */
+    --background-color: #1F2937;
+    --regular-heading-color: #FFFFFF;
+    --green-heading-color: #4ADF86;
+    --grey-text-color: #D5D4D8;
+
+    --pw-box-background-color: #273549;
+    --pw-box-text-color: #55f991;
+    --pw-box-hover-background-color: #374151;
+    
+    --green-button-color:#10B981;
+    --green-button-text: #FFFFFF;
+    --green-button-hover-color: #0BA875;
+
+    --divider-color: #2F3E53;
+    transition: 0.3s;
+}
+
+body.dark-mode {    
     /* Light mode variables */
     --background-color: #ECFDF5;
     --regular-heading-color: #2B283A;
@@ -15,25 +34,6 @@
     /* --green-button-hover-text: #2F3E53; */
 
     --divider-color: #D5D4D8;
-    transition: 0.3s;
-}
-
-body.dark-mode {
-    /* Dark mode variables */
-    --background-color: #1F2937;
-    --regular-heading-color: #FFFFFF;
-    --green-heading-color: #4ADF86;
-    --grey-text-color: #D5D4D8;
-
-    --pw-box-background-color: #273549;
-    --pw-box-text-color: #55f991;
-    --pw-box-hover-background-color: #374151;
-    
-    --green-button-color:#10B981;
-    --green-button-text: #FFFFFF;
-    --green-button-hover-color: #0BA875;
-
-    --divider-color: #2F3E53;
     transition: 0.3s;
 }
 
@@ -60,9 +60,9 @@ body {
 
     grid-template-areas: 
         "gnr8"
+        "leng"
         "numb"
         "symb"
-        "leng"
         "hori"
         "pwb1"
         "pwb2"
@@ -187,23 +187,24 @@ h3 {
     }
     
     header {
-        margin: 5%;
+        margin: 6%;
     }
     
     .grid {
         grid-template-columns: repeat(7, 1fr) / 1fr 1fr;
         grid-template-areas: 
+        "gnr8 leng"
         "gnr8 numb"
-        "gnr8 symb"
-        ".... leng"
+        ".... symb"
         "hori hori"
         "pwb1 pwb2"
         ".... ...."
         ".... dark"; 
-        padding: 1em 9%;
+        padding: 1em 6%;
         transition: .4s;
-        justify-content: center;
+        justify-content: start;
         gap: 1em;
+        margin-left: 0;
     }
     
     .regular-heading {
@@ -230,24 +231,39 @@ h3 {
     }
     
     .generate-btn {
-    padding: 11px 12px;
     font-size: 1.1em;
     letter-spacing: .5px;
-    margin-top: 1em;
+    margin-top: 0;
     max-width: 100%;
     width: 100%; 
-    align-self: start;
+    /* align-self: end;
+    justify-self: end; */
+    grid-area: gnr8;
 }
     
         /* Grid-area selectors */
-    .numb {align-self: end;}
+    .numb {align-self: center; margin-top: 0;}
     .symb {grid-area: symb;}
-    .leng {grid-area: leng;}
+    .leng {grid-area: leng; margin-bottom: 0.25em; align-self: center; justify-self: center;}
     .horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
     #first-password-container {justify-self: start;}
     #second-password-container {justify-self: end;}
     .dark-mode-switch-container {}
     
+}
+
+
+@media (min-width: 750px) {
+    .everything-holder {
+        margin-top: 7%;
+    }
+
+    .grid {
+        margin-left: 0;
+        gap: 1.5em;
+        
+    }
+
 }
 
 /*Everything here and below relates to the dark-mode toggle*/ 
