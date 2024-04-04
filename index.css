@@ -40,35 +40,33 @@ body.dark-mode {
 body {
     background-color: var(--background-color);
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     margin: 0;
 }
 
 /*holds all visible UI*/
-.everything-holder, header{ 
-    /* display: grid;
-    grid-template-columns: 1fr;  */
-    /* border: 1px solid red; */
-}
 
 .everything-holder {
     padding: 1em 7%;
+    /* border: 1px solid green; */
+    margin: 0 auto;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr) / 1fr;  
-    grid-row-gap: 0.75em;
-    border: 1px solid red;
+    grid-row-gap: .9em;
+    /* border: 1px solid red; */
+
     grid-template-areas: 
         "gnr8"
         "numb"
         "symb"
         "leng"
         "hori"
-        "pwbx"
-        "pwbx"
-        "....";
+        "pwb1"
+        "pwb2"
+        "dark";
     justify-items: center;
     margin-bottom: 1.5em;
 }
@@ -78,28 +76,34 @@ body {
 .numb {grid-area: numb;}
 .symb {grid-area: symb;}
 .leng {grid-area: leng;}
-.horizontal-divider {grid-area: hori; width: 10em;} 
-.pw-box-holder{grid-area: pwbx;} 
-
-.regular-heading, .green-heading {
-    font-size: 30px;
-}
+.horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
+#first-password-container {grid-area: pwb1; margin: 0;}
+#second-password-container {grid-area: pwb2; margin: 0;}
+.dark-mode-switch-container {grid-area: dark;}
 
 header {
-    height: 19vh;
+    height: 8em;
+    margin-bottom: 1em;
 }
+
+
 .regular-heading {
     color: var(--regular-heading-color);
     font-family: 'Karla', sans-serif;
-    font-size: 30px;
+    font-size: 2.1em;
     line-height: 40px;
     margin: 0px;
 }
 
 .green-heading {
     color: var(--green-heading-color);
-    font-size: 20px;
+    font-size: 1.875em;
     margin: 0px;
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin: .5em 0;
 }
 
 .grey-text {
@@ -113,10 +117,15 @@ header {
     border: none;
     border-radius: 5px;
     padding: 11px 12px;
-    font-size: 16px;
-    margin: 20px 0px 0px 0px;
+    font-size: 1.1em;
+    margin: 1.25em 0 .55em 0;
     cursor: pointer;
-    max-width: 250px;
+    min-width: 250px;
+    max-width: 300px;
+    width: 70vw;
+    height: 10vw;
+    min-height: 2.5em;
+    max-height: 3.25em;
     
 }
 
@@ -126,21 +135,15 @@ header {
 
 .horizontal-divider {
     color: var(--divider-color);
-    margin: 0;
-    /* width: 450px; */
+    margin: .55em 0 0.35em 0;
 }
-
-
-
-
 
 .pw-box {
     background-color: var(--pw-box-background-color);
     color: var(--pw-box-text-color);
-    width: 180px;
-    height: 20px;
+    width: 11.25em;
+    height: 1.25em;
     text-align: center;
-    /* margin: 10px 24px 0 0px; */
     border: none;
     border-radius: 5px;
     padding: 7px 17px;
@@ -151,13 +154,10 @@ header {
 .user-defined-parameters {
     /* border: 1px solid purple; */
     display: flex;
-    margin-left: auto;
+    margin: 0 0 0.25em auto;
     width: 15em;
     align-items: center;
     justify-content: end;
-    
-    
-    
 }
 
 .user-defined-parameters input {
@@ -175,38 +175,49 @@ header {
 .dark-mode-switch-container {
     display: flex;
     flex-direction: row;
-    justify-content: end;
     align-items: center;
-    border: 1px solid magenta;
+    margin: 1em 0 0 auto;
 }
 
 /* Media queries */
 @media (min-width: 550px) {
-
+    
+    .everything-holder {
+        max-width: 650px;   
+    }
+    
+    header {
+        margin: 5%;
+    }
+    
     .grid {
-        grid-template-columns: repeat(5, 1fr) / 1fr 1fr;
+        grid-template-columns: repeat(7, 1fr) / 1fr 1fr;
         grid-template-areas: 
         "gnr8 numb"
-        ".... symb"
+        "gnr8 symb"
         ".... leng"
-        "hori ...."
-        "pwbx pwbx"; 
-        padding: 0 9%;
+        "hori hori"
+        "pwb1 pwb2"
+        ".... ...."
+        ".... dark"; 
+        padding: 1em 9%;
+        transition: .4s;
+        justify-content: center;
+        gap: 1em;
     }
     
     .regular-heading {
         color: var(--regular-heading-color);
         font-family: 'Karla', sans-serif;
-        font-size: 40px;
+        font-size: 2.5em;
         line-height: 40px;
         margin: 0px;
-        
     }
 
     .green-heading {
         color: var(--green-heading-color);
         margin: 0px;
-        font-size: 30px;
+        font-size: 2.5rem;
     }
 
     .grey-text {
@@ -214,17 +225,29 @@ header {
         font-weight: 400;
     }
     
-    .flex-align {
-    display: flex;
-    flex-direction: column;   
+    h3 {
+        font-size: 1.25em
     }
     
-    .pw-box-holder {
-        flex-direction: row;
-        align-items: center;
-        border: 1px solid blue;
-        gap: 1em;
-    }
+    .generate-btn {
+    padding: 11px 12px;
+    font-size: 1.1em;
+    letter-spacing: .5px;
+    margin-top: 1em;
+    max-width: 100%;
+    width: 100%; 
+    align-self: start;
+}
+    
+        /* Grid-area selectors */
+    .numb {align-self: end;}
+    .symb {grid-area: symb;}
+    .leng {grid-area: leng;}
+    .horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
+    #first-password-container {justify-self: start;}
+    #second-password-container {justify-self: end;}
+    .dark-mode-switch-container {}
+    
 }
 
 /*Everything here and below relates to the dark-mode toggle*/ 

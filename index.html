@@ -2,6 +2,7 @@
 <html lang="en">
     <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,30 +55,27 @@
                         placeholder="Enter a number"
                         class="pw-box">
                 </div>
-                <div><hr class="horizontal-divider"></div>
+                <hr class="horizontal-divider">
                 <!--a-flex-box-to-hold-two-password containers-->
-                <div class="pw-box-holder flex-align"> 
-                    <div>
-                        <p id="first-password-container" 
-                            class="pw-box"
-                            data-first_pw_box="first_pw_box"></p>
-                    </div>
-                    <div>
-                        <p id="second-password-container" 
-                            class="pw-box"
-                            data-second_pw_box="second_pw_box"></p>
-                    </div>
-                </div>
-            </section> 
-            <footer class="dark-mode-switch-container">
-                <label for="dark-mode" class="grey-text">Dark mode</label>
-                <label class="switch">
+                <p id="first-password-container" 
+                    class="pw-box"
+                    data-first_pw_box="first_pw_box"></p>
+                <p id="second-password-container" 
+                    class="pw-box"
+                    data-second_pw_box="second_pw_box"></p>
+                <div class="dark-mode-switch-container">
+                    <label for="dark-mode" class="grey-text">Dark mode</label>
+                    <label class="switch">
                     <input 
                         type="checkbox"
                         id="dark-mode" 
                         data-dark_mode="dark_mode">
-                    <span class="slider round" checked="unchecked"></span>
+                    <span class="slider round"></span>
                 </label>
+                </div>
+                <!-- </div> -->
+            </section> 
+            <footer>
             </footer>
         </section>
         </main>

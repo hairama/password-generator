@@ -13,6 +13,7 @@ const passwordLength = document.getElementById("password-length")
 let pwLength = 15
 let includeNumbers = true
 let includeSymbols = true
+let darkMode = false
 passwordLength.value = pwLength
 
 
@@ -79,5 +80,15 @@ function copyToClipboard(e) {
     const textContent = e.target.textContent
     navigator.clipboard.writeText(textContent)
     alert("Copied the text: " + textContent)
+}
+
+function setInitialToggleState() {
+    document.getElementById('toggle-symbols').checked = includeSymbols
+    document.getElementById('toggle-numbers').checked = includeNumbers
+    document.getElementById('dark-mode').checked = darkMode
+}
+
+window.onload = function() {
+    setInitialToggleState();
 }
 
