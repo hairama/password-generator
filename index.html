@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="stylesheet" href="index.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap" rel="stylesheet">  
-        <title>Password Generator</title>
-    </head>
-    <body>
-        <!--holds all visible UI-->
-        <section class="everything-holder"> 
-            <header>
-                <h1 class="regular-heading">Generate a</h1>
-                <h1 class="green-heading">random password</h1>
-                <h3 class="grey-text">Never use an insecure password again.</h3>
-            </header>
-            <main>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap"
+        rel="stylesheet">
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <!--holds all visible UI-->
+    <section class="everything-holder">
+        <header>
+            <h1 class="regular-heading">Generate a</h1>
+            <h1 class="green-heading">random password</h1>
+            <h3 class="grey-text">Never use an insecure password again.</h3>
+        </header>
+        <main>
             <!--functional UI-->
-            <section class="grid"> 
+            <section class="grid">
+                <span id="password-length-error"></span>
                 <button 
                     id="generate-btn" 
-                    class="generate-btn"
+                    class="generate-btn" 
                     data-generate="generate">Generate passwords
                 </button>
                 <div class="user-defined-parameters numb">
-                    <label for="toggle-numbers" class="grey-text">Include numbers</label>    
+                    <label for="toggle-numbers" class="grey-text">Include numbers</label>
                     <label class="switch">
                         <input 
                             type="checkbox" 
-                            id="toggle-numbers"
+                            id="toggle-numbers" 
                             data-include_numbers="include_numbers">
                         <span class="slider round" checked="checked"></span>
                     </label>
@@ -52,37 +57,35 @@
                 <div class="user-defined-parameters leng">
                     <label class="grey-text" for="password-length">Password length:</label>
                     <input 
-                        type="number"
-                        id="password-length"
-                        data-pw_length="pw_length"
+                        type="number" 
+                        id="password-length" 
+                        data-pw_length="pw_length" 
                         value="15"
-                        placeholder="Enter a number"
+                        placeholder="Enter number" 
+                        min="1" 
+                        max="128" 
+                        maxlength="3" 
                         class="pw-box">
                 </div>
                 <hr class="horizontal-divider">
-                <!--a-flex-box-to-hold-two-password containers-->
-                <p id="first-password-container" 
-                    class="pw-box"
-                    data-first_pw_box="first_pw_box"></p>
-                <p id="second-password-container" 
-                    class="pw-box"
-                    data-second_pw_box="second_pw_box"></p>
+                <p id="first-password-container" class="pw-box" data-first_pw_box="first_pw_box"></p>
+                <p id="second-password-container" class="pw-box" data-second_pw_box="second_pw_box"></p>
                 <div class="dark-mode-switch-container">
-                    <label for="dark-mode" class="grey-text">Dark mode</label>
+                    <label for="dark-mode" class="grey-text">Dark mode </label>
                     <label class="switch">
-                    <input 
-                        type="checkbox"
-                        id="dark-mode" 
-                        data-dark_mode="dark_mode">
-                    <span class="slider round"></span>
-                </label>
+                        <input 
+                            type="checkbox" 
+                            id="dark-mode" 
+                            data-dark_mode="dark_mode">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <!-- </div> -->
+            <!--End of grid-->
             </section> 
-            <footer>
-            </footer>
+    <!--End of "everything holder"-->
         </section>
-        </main>
-        <script src="index.js"></script>
-    </body>
+    </main>
+    <script src="index.js"></script>
+</body>
+
 </html>

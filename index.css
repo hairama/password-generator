@@ -31,7 +31,6 @@ body.dark-mode {
     --green-button-color: #10B981;
     --green-button-text: #FFFFFF;
     --green-button-hover-color: #0BA875; 
-    /* --green-button-hover-text: #2F3E53; */
 
     --divider-color: #D5D4D8;
     transition: 0.3s;
@@ -48,17 +47,21 @@ body {
 
 .everything-holder {
     padding: 1em 7%;
-    /* border: 1px solid green; */
-    margin: 0 auto;
+    margin: 1em auto;
+}
+
+header {
+    margin: 0;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr) / 1fr;  
-    grid-row-gap: .9em;
+    grid-template-columns: 1.2em repeat(8, 1fr) / 1fr;  
+    grid-row-gap: 1.2em;
     /* border: 1px solid red; */
 
     grid-template-areas: 
+        "eror"
         "gnr8"
         "leng"
         "numb"
@@ -72,10 +75,11 @@ body {
 }
 
 /* Grid-area selectors */
+#password-length-error {grid-area: eror; min-height: 1.2em; grid-row-gap: .25em; color: red;}
 .generate-btn {grid-area: gnr8;}
+.leng {grid-area: leng;}
 .numb {grid-area: numb;}
 .symb {grid-area: symb;}
-.leng {grid-area: leng;}
 .horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
 #first-password-container {grid-area: pwb1; margin: 0;}
 #second-password-container {grid-area: pwb2; margin: 0;}
@@ -86,29 +90,29 @@ header {
     margin-bottom: 1em;
 }
 
-
 .regular-heading {
     color: var(--regular-heading-color);
     font-family: 'Karla', sans-serif;
-    font-size: 2.1em;
+    font-size: 1.6em;
     line-height: 40px;
     margin: 0px;
 }
 
 .green-heading {
     color: var(--green-heading-color);
-    font-size: 1.875em;
+    font-size: 1.4em;
     margin: 0px;
 }
 
 h3 {
-    font-size: 1.15rem;
+    font-size: 1.1em;
     margin: .5em 0;
 }
 
 .grey-text {
     color: var(--grey-text-color);
     font-weight: 400;
+    padding-right: .3em;
 }
 
 .generate-btn {
@@ -118,7 +122,7 @@ h3 {
     border-radius: 5px;
     padding: 11px 12px;
     font-size: 1.1em;
-    margin: 1.25em 0 .55em 0;
+    margin: .25em 0 .55em 0;
     cursor: pointer;
     min-width: 250px;
     max-width: 300px;
@@ -148,7 +152,9 @@ h3 {
     border-radius: 5px;
     padding: 7px 17px;
     font-weight: 400;
+    white-space: nowrap; 
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-defined-parameters {
@@ -162,10 +168,6 @@ h3 {
 
 .user-defined-parameters input {
     width: 4em;
-    /* border: 10px solid goldenrod */
-    margin: 0;
-    -moz-appearance: textfield;
-    
 }
 
 .pw-box:hover {
@@ -177,6 +179,26 @@ h3 {
     flex-direction: row;
     align-items: center;
     margin: 1em 0 0 auto;
+}
+
+@media (min-width: 320px) {
+    .everything-holder {
+        margin: 4.5em auto;
+    }
+
+    .regular-heading {
+        font-size: 2.1em;
+    }
+    
+    .green-heading {
+       
+        font-size: 1.875em;
+        
+    }
+    
+    h3 {
+        font-size: 1.15em;
+    }
 }
 
 /* Media queries */
@@ -191,8 +213,9 @@ h3 {
     }
     
     .grid {
-        grid-template-columns: repeat(7, 1fr) / 1fr 1fr;
+        grid-template-columns: 1em repeat(7, 1fr) / 1fr 1fr;
         grid-template-areas: 
+        "eror eror"
         "gnr8 leng"
         "gnr8 numb"
         ".... symb"
@@ -268,12 +291,13 @@ h3 {
 
 /*Everything here and below relates to the dark-mode toggle*/ 
 /* The switch - the box around the slider */
+
+
 .switch {
     position: relative;
     display: inline-block;
-    width: 48px;
-    height: 26px;
-    margin-right: 5px;
+    width: 60px;
+    height: 34px;
 }
 
 /* Hide default HTML checkbox */
@@ -299,10 +323,10 @@ h3 {
 .slider:before {
     position: absolute;
     content: "";
-    height: 21px;
-    width: 21px;
-    left: 3px;
-    bottom: 3px;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -333,5 +357,5 @@ input:checked + .slider:before {
 
 label {
     display: inline-block;
-    margin-right: 5px; /* Adjust this to your preference */
 }
+
