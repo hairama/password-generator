@@ -15,6 +15,12 @@
 
     --divider-color: #2F3E53;
     transition: 0.3s;
+
+    /* Font sizes & spacing */
+    --small-font-small-mobile: .9em;
+    --regular-font-small-mobile: 1.1em;
+    --medium-font-small-mobile: 1.5em;
+    --large-font-small-mobile: 1.6em;
 }
 
 body.dark-mode {    
@@ -24,13 +30,8 @@ body.dark-mode {
     --green-heading-color: #10B981;
     --grey-text-color: #6B7280;
 
-    --pw-box-background-color: #273549;
     --pw-box-text-color: #5DEF92;
     --pw-box-hover-background-color: #414B5A;
-
-    --green-button-color: #10B981;
-    --green-button-text: #FFFFFF;
-    --green-button-hover-color: #0BA875; 
 
     --divider-color: #D5D4D8;
     transition: 0.3s;
@@ -39,27 +40,34 @@ body.dark-mode {
 body {
     background-color: var(--background-color);
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    margin: 0;
+    font-size: var(--regular-font-small-mobile);
 }
 
-/*holds all visible UI*/
-
+/* MAIN CONTAINER FOR APPLICATION */
 .everything-holder {
     padding: 1em 7%;
     margin: 1em auto;
 }
 
-header {
-    margin: 0;
+/* HEADER GRID */
+.header-grid {
+    grid-template-columns: repeat(3, 1fr) / 1fr;
+    grid-template-areas: 
+        "rghd"
+        "ghed"
+        "h3ee";
+    margin: 0 auto;
 }
 
+/* HEADER GRID-AREA SELECTORS */
+.regular-heading {grid-area:rghd}
+.green-heading {grid-area: ghed;}
+h3 {grid-area: h3ee;}
+
+/* GRID FOR ALL INTERACTIVE ELEMENTS */
 .grid {
     display: grid;
-    grid-template-columns: 1.2em repeat(8, 1fr) / 1fr;  
-    grid-row-gap: 1.2em;
-    /* border: 1px solid red; */
-
+    grid-template-columns: 1em repeat(8, 1fr) / 1fr;  
     grid-template-areas: 
         "eror"
         "gnr8"
@@ -70,42 +78,40 @@ header {
         "pwb1"
         "pwb2"
         "dark";
-    justify-items: center;
-    margin-bottom: 1.5em;
+    grid-row-gap: 1em;
+    justify-items: end;
 }
 
-/* Grid-area selectors */
-#password-length-error {grid-area: eror; min-height: 1.2em; grid-row-gap: .25em; color: red;}
+/* INTERACTIVE GRID-AREA SELECTORS */
+#password-length-error {grid-area: eror;}
 .generate-btn {grid-area: gnr8;}
 .leng {grid-area: leng;}
 .numb {grid-area: numb;}
 .symb {grid-area: symb;}
-.horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
-#first-password-container {grid-area: pwb1; margin: 0;}
-#second-password-container {grid-area: pwb2; margin: 0;}
+.horizontal-divider {grid-area: hori;} 
+#first-password-container {grid-area: pwb1;}
+#second-password-container {grid-area: pwb2;}
 .dark-mode-switch-container {grid-area: dark;}
 
-header {
-    height: 8em;
-    margin-bottom: 1em;
+        /* TYPOGRAPHY */
+.regular-heading, .green-heading, p {
+    margin: 0;
 }
 
 .regular-heading {
     color: var(--regular-heading-color);
     font-family: 'Karla', sans-serif;
-    font-size: 1.6em;
-    line-height: 40px;
-    margin: 0px;
+    font-size: var(--large-font-small-mobile);
+    line-height: 2.5rem;
 }
 
 .green-heading {
     color: var(--green-heading-color);
-    font-size: 1.4em;
-    margin: 0px;
+    font-size: var(--medium-font-small-mobile);
 }
 
 h3 {
-    font-size: 1.1em;
+    font-size: var(--regular-font-small-mobile);
     margin: .5em 0;
 }
 
@@ -115,59 +121,69 @@ h3 {
     padding-right: .3em;
 }
 
+#password-length-error {
+    font-size: var(--small-font-small-mobile);
+    color: red;
+    justify-self: center;
+}
+
+            /* INTERACTIVE ELEMENTS */
+.generate-btn, .pw-box {
+    border-radius: 5px;
+    border: none;
+}
 .generate-btn {
     color: var(--green-button-text);
     background-color: var(--green-button-color);
-    border: none;
-    border-radius: 5px;
-    padding: 11px 12px;
-    font-size: 1.1em;
-    margin: .25em 0 .55em 0;
-    cursor: pointer;
-    min-width: 250px;
-    max-width: 300px;
-    width: 70vw;
-    height: 10vw;
+    padding: .6875em .75em;
+    margin: 0 0 .55em 0;
+    height: 15vw;
+    width: 100%;
     min-height: 2.5em;
     max-height: 3.25em;
-    
+    min-width: 250px;
+    cursor: pointer;
+    font-size: var(--regular-font-small-mobile);
 }
 
 .generate-btn:hover {
     background-color: var(--green-button-hover-color);
 }
 
-.horizontal-divider {
-    color: var(--divider-color);
-    margin: .55em 0 0.35em 0;
+/* PASSWORD LENGTH INPUT LABEL*/
+label.grey-text {
+    justify-self: end;
 }
 
+/* PASSWORD LENGTH INPUT FIELD*/
+.user-defined-parameters input {
+    width: 6em;
+}
+
+/* PASSWORD LENGTH, INCLUDE NUMBERS, INCLUDE SYMBOLS GRID ITEMS */
+.user-defined-parameters {
+    display: flex;
+    margin: 0 0 0.25em auto;
+    align-items: center;
+    justify-content: end;
+}
+
+.horizontal-divider {
+    color: var(--divider-color);
+    width: 100%; grid-column: 1 / -1;
+}
+
+/* 2 PASSWORD BOXES */
 .pw-box {
     background-color: var(--pw-box-background-color);
     color: var(--pw-box-text-color);
     width: 11.25em;
     height: 1.25em;
     text-align: center;
-    border: none;
-    border-radius: 5px;
-    padding: 7px 17px;
-    font-weight: 400;
+    padding: .4375em 1.0625em;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.user-defined-parameters {
-    /* border: 1px solid purple; */
-    display: flex;
-    margin: 0 0 0.25em auto;
-    width: 15em;
-    align-items: center;
-    justify-content: end;
-}
-
-.user-defined-parameters input {
-    width: 4em;
 }
 
 .pw-box:hover {
@@ -181,39 +197,25 @@ h3 {
     margin: 1em 0 0 auto;
 }
 
-@media (min-width: 320px) {
-    .everything-holder {
-        margin: 4.5em auto;
-    }
-
-    .regular-heading {
-        font-size: 2.1em;
-    }
-    
-    .green-heading {
-       
-        font-size: 1.875em;
-        
-    }
-    
-    h3 {
-        font-size: 1.15em;
-    }
+        /* MEDIA QUERIES */
+@media (min-width: 321px) {
+    .everything-holder {margin: 4.5em auto;}
+    .regular-heading {font-size: 2.1em;}
+    .green-heading {font-size: 1.875em;}
+    h3 {font-size: 1.15em;}
+    .generate-btn {width: 100%;}
 }
 
-/* Media queries */
-@media (min-width: 550px) {
+@media (min-width: 526px) {
     
     .everything-holder {
-        max-width: 650px;   
-    }
-    
-    header {
-        margin: 6%;
+        max-width: 560px;
+        margin: 6em auto;
+        padding: 0 3vw;
     }
     
     .grid {
-        grid-template-columns: 1em repeat(7, 1fr) / 1fr 1fr;
+        grid-template-columns: 1em repeat(7, 1fr) / 35vw 35vw;
         grid-template-areas: 
         "eror eror"
         "gnr8 leng"
@@ -223,76 +225,41 @@ h3 {
         "pwb1 pwb2"
         ".... ...."
         ".... dark"; 
-        padding: 1em 6%;
+        padding: 0;
         transition: .4s;
-        justify-content: start;
+        justify-content: space-between;
         gap: 1em;
-        margin-left: 0;
+        margin: 0 auto;
     }
     
-    .regular-heading {
-        color: var(--regular-heading-color);
-        font-family: 'Karla', sans-serif;
-        font-size: 2.5em;
-        line-height: 40px;
-        margin: 0px;
-    }
+    .regular-heading, .green-heading {margin: 0; font-size: 2.5rem;}
+    
+    .regular-heading {line-height: 2.5rem;}
+    h3 {font-size: 1.25em}
+    #password-length-error {font-size: var(--regular-font-small-mobile);}
 
-    .green-heading {
-        color: var(--green-heading-color);
-        margin: 0px;
-        font-size: 2.5rem;
-    }
-
-    .grey-text {
-        color: var(--grey-text-color);
-        font-weight: 400;
-    }
-    
-    h3 {
-        font-size: 1.25em
-    }
-    
-    .generate-btn {
-    font-size: 1.1em;
-    letter-spacing: .5px;
-    margin-top: 0;
-    max-width: 100%;
-    width: 100%; 
-    /* align-self: end;
-    justify-self: end; */
-    grid-area: gnr8;
-}
-    
-        /* Grid-area selectors */
-    .numb {align-self: center; margin-top: 0;}
-    .symb {grid-area: symb;}
-    .leng {grid-area: leng; margin-bottom: 0.25em; align-self: center; justify-self: center;}
-    .horizontal-divider {grid-area: hori; width: 100%; grid-column: 1 / -1;} 
+    .user-defined-parameters input {width: 15vw; max-width: 8em;}
     #first-password-container {justify-self: start;}
-    #second-password-container {justify-self: end;}
-    .dark-mode-switch-container {}
-    
 }
-
 
 @media (min-width: 750px) {
     .everything-holder {
-        margin-top: 7%;
+        margin-top: 15%;
+        max-width: 600px;
     }
 
-    .grid {
-        margin-left: 0;
-        gap: 1.5em;
-        
+    .grid {gap: 1.3em;}
+
+    .dark-mode-switch-container {
+        position: fixed;
+        top: 0.1em;
+        right: 1.5em;
     }
 
 }
 
-/*Everything here and below relates to the dark-mode toggle*/ 
+        /* TOGGLE STYLING */ 
 /* The switch - the box around the slider */
-
-
 .switch {
     position: relative;
     display: inline-block;

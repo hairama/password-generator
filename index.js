@@ -2,13 +2,11 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
 
-
 //variables to store & populate the password boxes
 const firstPasswordContainer = document.getElementById("first-password-container")
 const secondPasswordContainer = document.getElementById("second-password-container")
 const passwordLength = document.getElementById("password-length")
 const errorMessage = document.getElementById('password-length-error');
-
 
 //varibles for user-defined parameters
 let pwLength = 15
@@ -71,11 +69,11 @@ function checkInputLength() {
     } else {
         errorMessage.textContent = " ";
         passwordLength.setCustomValidity(""); // Reset validity message
-        passwordGenerate(pwLength, includeNumbers, includeSymbols)
+        generatePassword(pwLength, includeNumbers, includeSymbols)
     }
 }
 
-function passwordGenerate(pwLength, includeNumbers, includeSymbols) {
+function generatePassword(pwLength, includeNumbers, includeSymbols) {
     //build array based on desired length, and whether to include numbers or symbols
     let specifiedArray = [...characters];
     
@@ -122,4 +120,3 @@ function setInitialToggleState() {
 window.onload = function() {
     setInitialToggleState();
 }
-
