@@ -3,7 +3,7 @@
 ## *Overview* 🧐
 This project is part of the **"Making websites interactive"** module from the [**Frontend Career Path**](https://v2.scrimba.com/the-frontend-developer-career-path-c0j) course on [**Scrimba**](https://v2.scrimba.com/home).
 
-The Password Generator offers the same essential functions as: **1Password**, **Apple Keychain**, or **bitwarden**: The ability to create random passwords, of any length (up to 128 characters), to include/exclude special symbols or numbers, and "click-to-copy" for any password you create.
+The Password Generator offers many of the same essential functions as: **1Password**, **Apple Keychain**, or **bitwarden**: The ability to create random passwords, up to 128 characters, to include/exclude special symbols or numbers, and "click-to-copy" for any password you create.
 
 ![Password Generator](./pw-gen.gif)
 
