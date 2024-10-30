@@ -3,23 +3,35 @@
 ## *Overview* 🧐
 This project is part of the **"Making websites interactive"** module from the [**Frontend Career Path**](https://v2.scrimba.com/the-frontend-developer-career-path-c0j) course on [**Scrimba**](https://v2.scrimba.com/home).
 
-Oldagram simulates a social media platform where users can view posts with photos, comments, and likes. Semantic HTML, interactive CSS effects, and JavaScript were used to dynamically render the posts.
+The Password Generator offers the same essential functions as: **1Password**, **Apple Keychain**, or **bitwarden**: The ability to create random passwords, of any length (up to 128 characters), to include/exclude special symbols or numbers, and "click-to-copy" for any password you create.
 
-![Oldagram](./assets/screenshot/sample.gif)
+![Password Generator](./pw-gen.gif)
 
-## *Requeriments* 📝
+## *Requirements* 📝
 
-✅ ~~Create the first post.~~
+✅ ~~Build it from scratch.~~
 
-✅ ~~Use semantic HTML.~~
+✅ ~~Generate two random passwords when the user clicks the button.~~
 
-✅ ~~Add hover effects to the icons.~~
+✅ ~~Each password should be 15 characters long.~~
 
 ## *Stretch goals* 💪
 
-✅ ~~Use JavaScript to render out all three posts.~~
+✅ ~~Ability to set password length.~~
 
-❌ Increase the likes when double clicking the post.
+✅ ~~Add "copy-to-click".~~
+
+✅ ~~Toggle "symbols" and "numbers" on/off.~~
+
+## *Going above and beyond* 🚀
+
+✅ ~~Error handling.~~
+
+✅ ~~Responsive design.~~
+
+✅ ~~Progressive Web APP functionality.~~
+
+✅ ~~Dark mode toggle.~~
 
 ## *Screenshots* 📷
 
