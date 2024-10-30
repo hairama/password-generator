@@ -35,34 +35,28 @@ The Password Generator offers the same essential functions as: **1Password**, **
 
 ## *Screenshots* 📷
 
-![Mobile](./assets/screenshot/mobile.avif)
+![Mobile](./iphone_14_dark-light.png)
 
-![Desktop](./assets/screenshot/desktop.avif)
+![Click to copy](./click-to-copy.png)
 
 ## *Links* 🔗
 
-[Scrim code](https://v2.scrimba.com/s0cviu1jfb) 👈
+[Scrim code](https://v1.scrimba.com/scrim/cPvy9rTK) 👈
 
-[Live site](https://mendezpvi.github.io/fcp-oldagram/) 👈
+[Live site](https://password-gener8er.netlify.app) 👈
 
 ## *What I learned* 🤓
 
-🔳 **Importing constants from JS files:** I used `import` to manage icons and data from separate files, keeping the code modular and maintainable.
+🔳 **Dark Mode:** While reasearching various methods to implement dark mode, I learned about `CSS Variables` and `classList.toggle` as a way to keep the code modular and maintainable.
 
-🔳 **Defer in JavaScript:** I used the `defer` attribute to ensure the script runs after the DOM is fully loaded.
+🔳 **Window load event:** I used the `window.onload` method to ensure the toggle states are set only after the DOM is fully loaded.
 
-🔳 **Focus-visible:** I implemented accessible styles to improve the visibility of focused elements, but only for keyboard users.
+🔳 **Input sanitization & Error handling** I created a function to ensure the password length was 'valid' and notified the user when it was not.
 
-🔳 **Outline and accessibility:** I applied the outline attribute to maintain accessibility without compromising aesthetics, improving the experience for keyboard-dependent users.
+🔳 **Helper functions:** Rather than creating event listeners for each HTML element, I used a series of helper functions to increase readability and modularity. 
 
-🔳 **CSS transitions:** I added smooth transitions for hover and focus effects on the icons for a better user experience.
+🔳 **UI Optimizations:** I added a smooth animation for the transition to light mode, and selectively applied the `pointer` style to the password boxes only after the passwords were created.
 
 ## *Resources* 🗃️
 
 🗃️ [Frontend Career Path](https://v2.scrimba.com/the-frontend-developer-career-path-c0j) by Scrimba
-
-## *Author* 🔰
-
-✨ Frontend Mentor - [@medezpvi](https://www.frontendmentor.io/profile/mendezpvi)
-
-✨ X (formerly Twitter) - [@medezpvi](https://x.com/mendezpvi)
